@@ -1,6 +1,6 @@
 export const TOP_STORIES = /* GraphQL */ `
   query {
-    top_stories {
+    top_stories(offset: 0, limit: 30) {
       # ... on Comment {
       #   text
       # }
@@ -27,6 +27,12 @@ export const TOP_STORIES = /* GraphQL */ `
           id
           by
           text
+          user_info {
+            id
+            karma
+            about
+            avatarUrl
+          }
           replies {
             id
             by
