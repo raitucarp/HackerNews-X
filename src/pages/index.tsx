@@ -51,6 +51,7 @@ const Index = () => {
         flex={1}
         borderLeft="1px solid #000"
         borderRight="1px solid #000"
+        p={2}
       >
         {data.top_stories.map(
           ({
@@ -173,7 +174,7 @@ const Index = () => {
                                   )}
                                 </Text>
                               </HStack>
-                              <VStack fontSize="xs">
+                              <VStack fontSize="xs" align="flex-start">
                                 <ReactMarkdown>{text}</ReactMarkdown>
                                 {replies.map(({ id, by, text, user_info }) => (
                                   <HStack key={id} align="flex-start">

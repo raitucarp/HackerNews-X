@@ -2,3 +2,10 @@ code {
   white-space: normal;
   word-break: normal;
 }
+
+.leftnav,
+.sticky-active {
+  width: 100%;
+  z-index: 300;
+  background-color: white;
+}
