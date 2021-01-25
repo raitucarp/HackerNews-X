@@ -12,6 +12,7 @@
     "@chakra-ui/theme-tools": "1.0.0",
     "@emotion/react": "11.1.1",
     "@emotion/styled": "11.0.0",
+    "date-fns": "^2.16.1",
     "framer-motion": "^2.9.4",
     "graphql": "^15.4.0",
     "graphql-hooks": "^5.1.0",

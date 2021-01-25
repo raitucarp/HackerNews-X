@@ -1,4 +1,31 @@
 export const TOP_STORIES = /* GraphQL */ `
+  fragment comments on Comment {
+    id
+    by
+    text
+    time
+    score
+    user_info {
+      id
+      karma
+      about
+      avatarUrl
+    }
+    replies {
+      id
+      by
+      text
+      time
+      score
+      user_info {
+        id
+        karma
+        about
+        avatarUrl
+      }
+    }
+  }
+
   query {
     top_stories(offset: 0, limit: 30) {
       # ... on Comment {
@@ -12,6 +39,7 @@ export const TOP_STORIES = /* GraphQL */ `
         url
         score
         time
+        descendants
         user_info {
           id
           karma
@@ -23,21 +51,13 @@ export const TOP_STORIES = /* GraphQL */ `
           image
           description
         }
-        comments {
-          id
-          by
-          text
-          user_info {
-            id
-            karma
-            about
-            avatarUrl
-          }
-          replies {
-            id
-            by
-            text
-          }
+
+        main_comments: comments(offset: 0, limit: 1) {
+          ...comments
+        }
+
+        side_comments: comments(offset: 3) {
+          ...comments
         }
       }
     }
